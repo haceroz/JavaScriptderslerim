@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input type="text" id="sayi">
+    <input type="button" value="Hesapla" id="hesapla">
+    <div id="sonuc"></div>
+
+    <script>
+        
+        var btnHesapla=document.getElementById("hesapla");
+        var sonuc=document.getElementById("sonuc");
+
+        btnHesapla.onclick=function()
+        {
+            var sayi=document.getElementById("sayi").value;
+            if(sayi < 100 && sayi > 0 ){
+                if(sayi %2==0){
+                    document.getElementById("sonuc").innerHTML=sayi+" sayısı çift sayıdır";
+                }
+                else if(sayi %2!=0){
+                    document.getElementById("sonuc").innerHTML=sayi+" sayısı tek sayıdır";}
+            }
+            else{
+                document.getElementById("sonuc").innerHTML="lütfen 1 - 100 arasında değer girin"   
+            }
+        }
+    </script>
+</body>
+</html>
