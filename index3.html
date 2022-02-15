@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <form class="diger"></form>
+    <label for="ad">Ad : </label>
+    <div>
+        <input type="text"  placeholder="Adınız" id="ad" value="Hacer">
+    </div>
+    <form class="diger"></form>
+    <label for="soyad">Soyad : </label>
+    <div>
+        <input type="text"  placeholder="Soyadınız" id="soyad" value="Öz">
+    </div>
+    <label for="yas">Doğum Yılı : </label>
+    <div>
+        <input type="text"  placeholder="Doğum Yılınız" id="dogumYili" value="2001">
+    </div>
+    <label for="numara">Öğrenci Numaranız : </label>
+    <div>
+        <input type="text"  placeholder="Öğrenci Numaranız" id="numara" value="654">
+    </div>
+    <label for="not1">Matematik Notunuz  : </label>
+    <div>
+        <input type="text"  placeholder="Matematik notunuz" id="not1" value="66">
+    </div>
+    <label for="not2">Türkçe Notunuz  : </label>
+    <div>
+        <input type="text"  placeholder="Türkçe notunuz" id="not2" value="77">
+    </div>
+    <label for="not3">Biyoloji Notunuz  : </label>
+    <div>
+        <input type="text"  placeholder="Biyoloji notunuz" id="not3" value="44">
+        <button type="button" id="btnTopla">Not hesapla</button>
+    </div>
+    <div id="deneme"></div>
+    <script type="text/javascript">
+    btn = document.getElementById("btnTopla");
+    btn.onclick=function(){
+        var ad=(document.getElementById("ad").value);
+        var soyad=(document.getElementById("soyad").value);
+        var numara=Number(document.getElementById("numara").value);
+        var dogumYili=Number(document.getElementById("dogumYili").value);
+        var not1=Number(document.getElementById("not1").value);
+        var not2=Number(document.getElementById("not2").value);
+        var not3=Number(document.getElementById("not3").value);
+        var sonucYaz=document.getElementById("sonucYaz");
+        fullTarih = new Date();
+        simdikiyil = fullTarih.getFullYear();
+        var yasHesaplama = simdikiyil-(Number(dogumYili));
+        var dersNotlari= [not1,not2,not3]
+        
+
+        for (var index = 0; index < dersNotlari.length; index++) {
+            
+            if(dersNotlari[index] == dersNotlari[0]){//matematik sorgusu
+               
+                if(dersNotlari[index]<50){matematikNotu="KALDINIZ";}
+                else if (dersNotlari[index]<60) {matematikNotu="GEÇER";}
+                else if (dersNotlari[index]<70) {matematikNotu="ORTA"}
+                else if (dersNotlari[index]<85) {matematikNotu="İYİ"}
+                else if (dersNotlari[index]<=100) {matematikNotu="PEKİYİ"}
+            }
+            if(dersNotlari[index] == dersNotlari[1]){//türkçe sorgusu
+                if(dersNotlari[index]<50){matematikNotu="KALDINIZ";}
+                else if (dersNotlari[index]<60) {turkceNotu="GEÇER";}
+                else if (dersNotlari[index]<70) {turkceNotu="ORTA"}
+                else if (dersNotlari[index]<85) {turkceNotu="İYİ"}
+                else if (dersNotlari[index]<=100) {turkceNotu="PEKİYİ"}
+            }
+            if(dersNotlari[index] == dersNotlari[2]){//biyoloji sorgusu
+                if(dersNotlari[index]<50){biyolojiNotu="KALDINIZ";}
+                else if (dersNotlari[index]<60) {biyolojiNotu="GEÇER";}
+                else if (dersNotlari[index]<70) {biyolojiNotu="ORTA"}
+                else if (dersNotlari[index]<85) {biyolojiNotu="İYİ"}
+                else if (dersNotlari[index]<=100) {biyolojiNotu="PEKİYİ"}
+            }
+
+            if(dersNotlari[index] < 0){
+                if(dersNotlari[index]== dersNotlari[0]){matematikNotu="Hatalı Giriş!"}
+                if(dersNotlari[index]== dersNotlari[1]){turkceNotu="Hatalı Giriş!"}
+                if(dersNotlari[index]== dersNotlari[2]){biyolojiNotu="Hatalı Giriş!"}
+            }
+     
+        }
+        
+        document.getElementById("deneme").innerHTML="Adınız:" +ad + "<br/>Soyadınız:" +soyad + "<br/>Öğrenci Numaranız :" +numara +  "<br/>Matematik Not Bilgisi :"+matematikNotu + "<br/>Türkçe Not Bilgisi : "+turkceNotu+ "<br/>Biyoloji Not Bilgisi:" + biyolojiNotu+ "<br/>Yaşınız :" +yasHesaplama +""
+        
+
+   }
+    </script>
+    </body>
+    </html> 
